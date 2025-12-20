@@ -10,3 +10,5 @@ I tought this will be fun, to just generate my own workouts here
 ## To implement the next session:
 
 - error handling for database inputs (if one field is left empty, a field is not in the specified format, and other errors that appear in my head)
+- make the database visible in a friendly user interface
+- dividing the app into sections as "View History", "Current Training Plan", "Target distances predictions based on plan progress" etc
