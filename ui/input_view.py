@@ -38,13 +38,30 @@ class InputView(customtkinter.CTkFrame):
         time = self.time_entry.get()
         pace = self.pace_entry.get()
 
-        time = self.db.convert_to_seconds(time)
-        pace = self.db.convert_to_seconds(pace)
+        dot_count_time = time.count(":")
+        dot_count_pace = pace.count(":")
 
-        self.db.add_run(type, dist, time, pace)
+        if dot_count_time > 2 or dot_count_time == 0 or dot_count_pace != 1:
+            print("Error: Time or pace format incorect")
 
-        self.type_selector.set("Easy")
-        self.distance_entry.delete(0, 'end')
-        self.time_entry.delete(0, 'end')
-        self.pace_entry.delete(0, 'end')
+        elif type == "" or dist == "" or time == "" or pace == "":
+            print("Error: Please fill in all fields")
+
+        else:
+            try:
+                dist = float(dist)
+                time = self.db.convert_to_seconds(time)
+                pace = self.db.convert_to_seconds(pace)
+
+                self.db.add_run(type, dist, time, pace)
+
+                self.type_selector.set("Easy")
+                self.distance_entry.delete(0, 'end')
+                self.time_entry.delete(0, 'end')
+                self.pace_entry.delete(0, 'end')
+            except ValueError:
+                print("Distance, time or pace is not a number")
+            
+            
+
 
