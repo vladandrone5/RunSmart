@@ -10,9 +10,11 @@ I tought this will be fun, to just generate my own workouts here
 - added running history tab for viewing all the workout history [21 dec 2025]
 - added auto-refreshing database (without restarting the app to see the new workouts) [21 dec 2025]
 - formated the RunHistory tabel so it's more organized and also converted the time and pace to user friendly format [21 dec 2025]
+- added the predictions tab without the times (the prediction logic will be implemented) [21 dec 2025]
+
+* So on short, we have a database for workouts, a history of workouts, a predictions tab (without the prediction logic), refreshing the database
 
 ## To implement the next session:
 
 - error handling for any error appears in my head randomly :)
-- make the database visible in a friendly user interface (done)
-- dividing the app into sections as "View History", "Current Training Plan", "Target distances predictions based on plan progress" etc
+- implement the prediction logic (based on saved workouts / current progress to the training plan)
