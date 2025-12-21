@@ -40,5 +40,22 @@ class DatabaseManager:
 
         return total_time
 
+    def format_reverse_seconds(self, seconds): # transforms the seconds format back to hh:mm:ss
+        total_minutes, final_seconds = divmod(seconds, 60)
+
+        hours, final_minutes = divmod(total_minutes, 60)
+
+        if hours == 0:
+            return f"{final_minutes:02d}:{final_seconds:02d}"
+        else:
+            return f"{hours:02d}:{final_minutes:02d}:{final_seconds:02d}"
+
+
+    def get_all_runs(self):
+        curs = self.con.cursor()
+        curs.execute("SELECT * FROM Run")
+
+        return curs.fetchall()
+
 
 

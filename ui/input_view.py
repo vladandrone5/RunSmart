@@ -4,10 +4,11 @@ from logic.database import DatabaseManager
 run_types = ["Easy", "Speed", "Long"]
 
 class InputView(customtkinter.CTkFrame):
-    def __init__(self, parent):
+    def __init__(self, parent, history):
         super().__init__(parent)
 
         self.db = DatabaseManager()
+        self.history = history
 
         #handling section for field "Type"
 
@@ -59,6 +60,8 @@ class InputView(customtkinter.CTkFrame):
                 self.distance_entry.delete(0, 'end')
                 self.time_entry.delete(0, 'end')
                 self.pace_entry.delete(0, 'end')
+
+                self.history.load_data()
             except ValueError:
                 print("Distance, time or pace is not a number")
             
