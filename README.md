@@ -14,7 +14,8 @@ I tought this will be fun, to just generate my own workouts here
 - added auto-refreshing database (without restarting the app to see the new workouts) [21 dec 2025]
 - formated the RunHistory tabel so it's more organized and also converted the time and pace to user friendly format [21 dec 2025]
 - added the predictions tab without the times (the prediction logic will be implemented) [21 dec 2025]
-- implemented the "Current Time" column based on the latest 5k time in the Workout Database
+- implemented the "Current Time" column based on the latest 5k time in the Workout Database [31 dec 2025]
+- implemented Scrollable tabs for each training week (with navigation buttons between the weeks) + run cell creating [31 dec 2025]
 
 * So on short, we have a database for workouts, a history of workouts, a predictions tab (without the prediction logic), refreshing the database
 
