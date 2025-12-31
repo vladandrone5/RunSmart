@@ -56,6 +56,24 @@ class DatabaseManager:
         curs.execute("SELECT * FROM Run")
 
         return curs.fetchall()
+    
+    def latest_run_by_distance(self, target_distance):
+        curs = self.con.cursor()
+
+        curs.execute("""
+            SELECT time
+            FROM Run
+            WHERE distance = ?
+            ORDER BY rowid DESC
+            LIMIT 1
+        """, (target_distance,))
+
+        result = curs.fetchone()
+
+        if result:
+            return result[0]
+        return None
+    
 
 
 

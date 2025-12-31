@@ -36,6 +36,32 @@ class PredictionView(customtkinter.CTkFrame):
             current_predict_label = customtkinter.CTkLabel(self.grid_frame, text = "--:--:--")
             current_predict_label.grid(row = i, column = 2, padx = 10, pady = 10, sticky = "w")
             self.prediction_labels[distance] = current_predict_label
+        
+        self.update_predictions()
+    
+    def update_predictions(self):
+        distance_map = {
+            "5k": 5.0,
+            "10k": 10.0,
+            "Half Marathon": 21.0975,
+            "Marathon": 42.195
+        }
+
+        base_seconds = self.db.latest_run_by_distance(5.0)
+
+        for label_text, km_dist in distance_map.items():
+
+            if base_seconds:
+                predicted_seconds = base_seconds * (km_dist / 5.0) ** 1.06
+
+                time_str = self.db.format_reverse_seconds(int(predicted_seconds))
+            else:
+                time_str = "--:--:--"
+            
+            if label_text in self.time_labels:
+                self.time_labels[label_text].configure(text = time_str)
+            
+            
 
 
 

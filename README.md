@@ -2,6 +2,9 @@
 My very own running app  
 I tought this will be fun, to just generate my own workouts here
 
+## How to run
+- First of all make sure you have a `venv` installed in the main folder. If not just create one by writting to terminal: `$ python3 -m venv <name_of_venv>`. For activation use `$ source venv/bin/activate` and to deactivate just type `$ deactivate`
+
 ## Current implementations (what we have)
 
 - a working input window that resets after filling the boxes (with `customtkinter`)
@@ -11,10 +14,11 @@ I tought this will be fun, to just generate my own workouts here
 - added auto-refreshing database (without restarting the app to see the new workouts) [21 dec 2025]
 - formated the RunHistory tabel so it's more organized and also converted the time and pace to user friendly format [21 dec 2025]
 - added the predictions tab without the times (the prediction logic will be implemented) [21 dec 2025]
+- implemented the "Current Time" column based on the latest 5k time in the Workout Database
 
 * So on short, we have a database for workouts, a history of workouts, a predictions tab (without the prediction logic), refreshing the database
 
 ## To implement the next session:
 
 - error handling for any error appears in my head randomly :)
-- implement the prediction logic (based on saved workouts / current progress to the training plan)
+- implement the prediction logic (current progress to the training plan)
