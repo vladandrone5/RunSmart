@@ -57,6 +57,13 @@ class DatabaseManager:
 
         return curs.fetchall()
     
+    def get_all_runs_with_id(self):
+        curs = self.con.cursor()
+
+        curs.execute("SELECT rowid, type, distance, time, pace FROM Run")
+
+        return curs.fetchall()
+
     def latest_run_by_distance(self, target_distance):
         curs = self.con.cursor()
 
